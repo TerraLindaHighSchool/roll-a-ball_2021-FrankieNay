@@ -10,7 +10,7 @@ public class playercontroller : MonoBehaviour
     public Text countText;
     public Text winText;
     private int count;
-    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,7 +19,7 @@ public class playercontroller : MonoBehaviour
         winText.text = "";
     }
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
@@ -37,14 +37,14 @@ public class playercontroller : MonoBehaviour
             setCountText();
         }
     }
-        void setCountText()
+    void setCountText()
+    {
+        countText.text = "Count : " + count.ToString();
+        if (count >= 6)
         {
-            countText.text = "Count : " + count.ToString();
-            if (count >= 6)
-            {
-                winText.text = "Eat my balls";
-            }
+            winText.text = "You Win!";
         }
+    }
 
 
 }
